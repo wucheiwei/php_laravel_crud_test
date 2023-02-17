@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class Author extends Model
 {
     use HasFactory;
+
+    protected $fillable =['name'];
     
     public function books(){
-        return $this->hasMany(related: "App\Models\Book");
+        return $this->belongsToMany(related:'App\Models\Book');
     }
-
-    protected $fillable=['title'];
 }
-

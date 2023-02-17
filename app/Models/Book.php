@@ -10,11 +10,18 @@ class Book extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $fillable =[
         'title',
         'description',
         'price',
         'available'
     ];
+    public function store(){
+        return $this->belongsTo(related:'App\Models\Store');
+    }
+    
+    public function authors(){
+        return $this->belongsToMany(related:'App\Models\Author');
+    }
 }

@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
-            $table->id();
-            $table->string(column: 'title');
-            $table->timestamps();
+        Schema::table('books', function (Blueprint $table) {
+            $table -> integer(column:'store_id')->nullable();
         });
     }
 
@@ -27,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stores');
+        Schema::table('books', function (Blueprint $table) {
+            //
+        });
     }
 };
